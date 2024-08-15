@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Final Sale</title>
+    <style>
+      @font-face {
+        font-family: "Circe Bold";
+        src: url("./fonts/circe_bold.eot"); /* IE 9 Compatibility Mode */
+        src: url("./fonts/circe_bold.eot?#iefix") format("embedded-opentype"),
+          /* IE < 9 */ url("./fonts/circe_bold.woff2") format("woff2"),
+          /* Super Modern Browsers */ url("./fonts/circe_bold.woff")
+            format("woff"),
+          /* Firefox >= 3.6, any other modern browser */
+            url("./fonts/circe_bold.ttf") format("truetype"),
+          /* Safari, Android, iOS */ url("./fonts/circe_bold.svg#circe_bold")
+            format("svg"); /* Chrome < 4, Legacy iOS */
+      }
+
+      @font-face {
+        font-family: "Circe ExtraBold";
+        src: url("./fonts/circe_extrabold.eot"); /* IE 9 Compatibility Mode */
+        src: url("./fonts/circe_extrabold.eot?#iefix")
+            format("embedded-opentype"),
+          /* IE < 9 */ url("./fonts/circe_extrabold.woff2") format("woff2"),
+          /* Super Modern Browsers */ url("./fonts/circe_extrabold.woff")
+            format("woff"),
+          /* Firefox >= 3.6, any other modern browser */
+            url("./fonts/circe_extrabold.ttf") format("truetype"),
+          /* Safari, Android, iOS */
+            url("./fonts/circe_extrabold.svg#circe_extrabold") format("svg"); /* Chrome < 4, Legacy iOS */
+      }
+
+      @font-face {
+        font-family: "Circe ExtraLight";
+        src: url("./fonts/circe_extralight.eot"); /* IE 9 Compatibility Mode */
+        src: url("./fonts/circe_extralight.eot?#iefix")
+            format("embedded-opentype"),
+          /* IE < 9 */ url("./fonts/circe_extralight.woff2") format("woff2"),
+          /* Super Modern Browsers */ url("./fonts/circe_extralight.woff")
+            format("woff"),
+          /* Firefox >= 3.6, any other modern browser */
+            url("./fonts/circe_extralight.ttf") format("truetype"),
+          /* Safari, Android, iOS */
+            url("./fonts/circe_extralight.svg#circe_extralight") format("svg"); /* Chrome < 4, Legacy iOS */
+      }
+
+      @font-face {
+        font-family: "Circe Light";
+        src: url("./fonts/circe_light.eot"); /* IE 9 Compatibility Mode */
+        src: url("./fonts/circe_light.eot?#iefix") format("embedded-opentype"),
+          /* IE < 9 */ url("./fonts/circe_light.woff2") format("woff2"),
+          /* Super Modern Browsers */ url("./fonts/circe_light.woff")
+            format("woff"),
+          /* Firefox >= 3.6, any other modern browser */
+            url("./fonts/circe_light.ttf") format("truetype"),
+          /* Safari, Android, iOS */ url("./fonts/circe_light.svg#circe_light")
+            format("svg"); /* Chrome < 4, Legacy iOS */
+      }
+
+      @font-face {
+        font-family: "Circe";
+        src: url("./fonts/circe.eot"); /* IE 9 Compatibility Mode */
+        src: url("./fonts/circe.eot?#iefix") format("embedded-opentype"),
+          /* IE < 9 */ url("./fonts/circe.woff2") format("woff2"),
+          /* Super Modern Browsers */ url("./fonts/circe.woff") format("woff"),
+          /* Firefox >= 3.6, any other modern browser */
+            url("./fonts/circe.ttf") format("truetype"),
+          /* Safari, Android, iOS */ url("./fonts/circe.svg#circe")
+            format("svg"); /* Chrome < 4, Legacy iOS */
+      }
+
+      @font-face {
+        font-family: "Circe Thin";
+        src: url("./fonts/circe_thin.eot"); /* IE 9 Compatibility Mode */
+        src: url("./fonts/circe_thin.eot?#iefix") format("embedded-opentype"),
+          /* IE < 9 */ url("./fonts/circe_thin.woff2") format("woff2"),
+          /* Super Modern Browsers */ url("./fonts/circe_thin.woff")
+            format("woff"),
+          /* Firefox >= 3.6, any other modern browser */
+            url("./fonts/circe_thin.ttf") format("truetype"),
+          /* Safari, Android, iOS */ url("./fonts/circe_thin.svg#circe_thin")
+            format("svg"); /* Chrome < 4, Legacy iOS */
+      }
+
+      * {
+        font-family: Circe;
+        box-sizing: border-box;
+      }
+
+      tbody,
+      html,
+      p {
+        margin: 0;
+      }
+      .body {
+        background-color: #f7f7f7;
+      }
+      img {
+        display: block;
+
+        max-width: 100%; /* Изображение не выходит за границы контейнера */
+        height: auto; /* Сохраняем соотношение сторон изображения */
+      }
+      table {
+        border-collapse: collapse;
+      }
+      .container {
+        max-width: 500px;
+        margin: 0 auto;
+        padding-bottom: 44px;
+      }
+
+      .main {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #fff;
+      }
+      .hero {
+        background-image: url("./img/banner.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100vh;
+        width: 100%;
+        margin-bottom: 54px;
+      }
+      .hero__menu {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 auto;
+        padding-top: 17px;
+        max-width: 200px;
+      }
+      .hero__title {
+        margin-top: 20%;
+        margin-bottom: 30px;
+        font-weight: 800;
+        font-size: 42px;
+        line-height: 95%;
+        text-transform: uppercase;
+        text-align: center;
+        color: #000;
+      }
+      .hero__container {
+        max-width: 320px;
+        margin: 0 auto;
+      }
+      .hero__list {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 34px;
+      }
+
+      .hero__item p {
+        font-weight: 800;
+        font-size: 40px;
+        line-height: 1;
+        text-transform: uppercase;
+        text-align: center;
+        color: #2e2e2e;
+      }
+      .hero__item span {
+        display: flex;
+        justify-content: center;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1;
+        text-transform: lowercase;
+        text-align: center;
+        color: #2e2e2e;
+      }
+      .hero__subtitle {
+        text-align: center;
+        margin: 0 auto;
+        font-weight: 400;
+        font-size: 14px;
+        text-transform: capitalize;
+        color: #2e2e2e;
+      }
+      .hero__subtitle span {
+        display: block;
+        margin: 0 auto;
+        margin-top: 8px;
+        max-width: 258px;
+
+        border: 1px dashed #2e2e2e;
+        padding: 9px 20px;
+        font-weight: 700;
+        font-size: 28px;
+        text-transform: uppercase;
+        text-align: center;
+        color: #2e2e2e;
+      }
+      .hero__btn {
+        display: block;
+        text-decoration: none;
+        max-width: 247px;
+        text-align: center;
+        margin: 0 auto;
+        margin-top: 30px;
+        font-weight: 400;
+        font-size: 20px;
+        padding: 18px 46px;
+        border-radius: 50px;
+        color: #fff;
+        background-color: #2abe80;
+      }
+      .catalog__content p {
+        margin-bottom: 44px;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 156%;
+        color: #000;
+      }
+      .catalog__content b {
+        text-decoration: underline;
+        text-decoration-skip-ink: none;
+        color: #476fc6;
+      }
+      .catalog__content a {
+        font-weight: 700;
+        color: #476fc6;
+      }
+      .catalog__item {
+        text-align: center;
+        padding-bottom: 18px;
+      }
+      .catalog__item img {
+        margin-bottom: 20px;
+      }
+      .catalog__item a {
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 150%;
+        text-decoration: underline;
+        text-decoration-skip-ink: none;
+        text-align: center;
+        color: #476fc6;
+      }
+      .catalog__list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .catalog__text {
+        margin-top: 68px;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 143%;
+        text-align: center;
+        text-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0);
+        color: #c4c4c4;
+      }
+      .foot__links {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+      }
+      .foot__links a {
+        margin-top: 40px;
+        text-decoration: none;
+        font-weight: 400;
+        font-size: 17px;
+        line-height: 159%;
+        color: #2abe80;
+      }
+      .foot__text {
+        font-weight: 400;
+        font-size: 14px;
+        color: #a3a3a3;
+      }
+      .foot__web {
+        display: flex;
+        justify-content: center;
+        gap: 52px;
+        margin-top: 25px;
+      }
+      .foot__web a {
+        display: flex;
+        gap: 10px;
+        text-decoration: none;
+        font-weight: 400;
+        font-size: 14px;
+        color: #a3a3a3;
+      }
+    </style>
+  </head>
+  <div class="body">
+    <div class="main">
+      <!-- SECTION HERO -->
+      <div class="hero">
+        <div class="hero__container">
+          <nav class="hero__menu">
+            <a href="#">
+              <img src="./img/logo.svg" alt="logo" />
+            </a>
+            <a href="#">
+              <img src="./img/meb.svg" alt="meb" />
+            </a>
+          </nav>
+
+          <p class="hero__title">Финальная распродажа этого лета!</p>
+
+          <table>
+            <tbody class="hero__list">
+              <tr class="hero__item">
+                <td>
+                  <a href="#">
+                    <img src="./img/mellon_10.svg" alt="melon" />
+                  </a>
+                  <p>
+                    10%
+                    <span>До 19:00</span>
+                  </p>
+                </td>
+              </tr>
+              <tr class="hero__item">
+                <td>
+                  <a href="#"> <img src="./img/mellon_8.svg" alt="melon" /></a>
+                  <p>
+                    8%
+                    <span>До 22:00</span>
+                  </p>
+                </td>
+              </tr>
+              <tr class="hero__item">
+                <td>
+                  <a href="#"> <img src="./img/mellon_5.svg" alt="melon" /></a>
+                  <p>
+                    5%
+                    <span>До 00:00</span>
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2 class="hero__subtitle">
+            Промокод
+            <span> GOODBYELETO </span>
+          </h2>
+
+          <a href="#" class="hero__btn">Получить скидку</a>
+        </div>
+      </div>
+      <!-- SECTION CATALOG -->
+      <div class="catalog">
+        <div class="container">
+          <div class="catalog__content">
+            <p>Здравствуйте!</p>
+            <p>
+              Теперь, когда вы готовы к школе и обновили спальни своих малышей,
+              пришла пора подумать о себе. Возможно, настало время поменять
+              подушку или вы давно собирались купить
+              <a href="#">шерстяное одеяло</a> на тот период, когда по ночам уже
+              холодает, а отопление ещё не включили.
+            </p>
+            <p>
+              В конце концов, порадуйте себя новым комплектом мягкого
+              <a href="#">постельного белья</a> или красивым
+              <a href="#">уютным пледом</a>! Но торопитесь,
+              <strong>скидка 10%</strong> на все эти радости будет действовать
+              только <strong>до 13:00</strong>.
+            </p>
+          </div>
+
+          <table>
+            <tbody class="catalog__list">
+              <tr class="catalog__item">
+                <td>
+                  <a href="#">
+                    <img src="./img/bed_sheets_1.svg" alt="bed_sheets" />
+                    Подушки
+                  </a>
+                </td>
+              </tr>
+              <tr class="catalog__item">
+                <td>
+                  <a href="#">
+                    <img src="./img/bed_sheets_2.svg" alt="bed_sheets" />
+                    Одеяла
+                  </a>
+                </td>
+              </tr>
+              <tr class="catalog__item">
+                <td>
+                  <a href="#">
+                    <img src="./img/bed_sheets_3.svg" alt="bed_sheets" />
+                    Постельное бельё
+                  </a>
+                </td>
+              </tr>
+              <tr class="catalog__item">
+                <td>
+                  <a href="#">
+                    <img src="./img/bed_sheets_4.svg" alt="bed_sheets" />
+                    Пледы и покрывала
+                  </a>
+                </td>
+              </tr>
+              <tr class="catalog__item">
+                <td>
+                  <a href="#">
+                    <img src="./img/bed_sheets_5.svg" alt="bed_sheets" />
+                    Ванная
+                  </a>
+                </td>
+              </tr>
+              <tr class="catalog__item">
+                <td>
+                  <a href="#">
+                    <img src="./img/bed_sheets_6.svg" alt="bed_sheets" />
+                    Кухня
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <a href="#" class="hero__btn">В магазин</a>
+
+          <p class="catalog__text">
+            Промокод действует на все товары, кроме разделов «Кровати» и
+            «Матрасы». Cкидка не суммируется со скидками на сайте, скидками и
+            подарками по другим промокодам и дисконтным картам. Размер скидки
+            зависит от времени оформления заказа.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="foot">
+      <div class="container">
+        <div class="foot__links">
+          <a href="#">
+            <img src="./img/socials.svg" alt="socials" />
+          </a>
+          <a href="tel:+78005556055">8 800 555 60 55</a>
+        </div>
+
+        <p class="foot__text">
+          Данное письмо было отправлено на hafizova.i@gmail.com. Пожалуйста,
+          добавьте mailer@spim.ru в вашу адресную книгу, чтобы наши письма не
+          попадали в спам.
+        </p>
+        <div class="foot__web">
+          <a href="#">
+            <img src="./img/unsubscribe.svg" alt="unsubscribe" />
+            Отписаться
+          </a>
+          <a href="#">
+            <img src="./img/web.svg" alt="web" />
+            Веб-версия
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</html>
